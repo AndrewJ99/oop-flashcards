@@ -11,76 +11,84 @@
             box-sizing: border-box;
         }
 
+        :root {
+            --spacing-xs: 0.25rem;
+            --spacing-sm: 0.5rem;
+            --spacing-md: 1rem;
+            --spacing-lg: 1.5rem;
+            --spacing-xl: 2rem;
+            --card-border-radius: 12px;
+            --container-padding: max(1rem, 4vw);
+        }
+
         body {
             font-family: system-ui, -apple-system, sans-serif;
-            height: 100vh;
             background-color: #121212;
             color: #e0e0e0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 0;
-            /* Prevent mobile bounce */
+            min-height: 100vh;
             position: fixed;
             width: 100%;
             overflow: hidden;
+            touch-action: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .container {
-            width: 100%;
             height: 100vh;
-            display: flex;
-            flex-direction: column;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: var(--container-padding);
+            display: grid;
+            /* Changed to auto for more control over sizing */
+            grid-template-rows: auto minmax(0, 1.2fr) auto auto;
+            gap: var(--spacing-sm);
+            /* Added to center content vertically */
             align-items: center;
-            justify-content: space-between;
-            gap: 0.5rem;
-            padding: 0.5rem;
-            max-width: min(90vw, 1400px);
         }
 
         h1 {
             text-align: center;
-            font-size: clamp(1.2rem, 4vw, 2.5rem);
+            font-size: clamp(1rem, 5vmin, 2rem);
             color: #fff;
-            padding: 0.25rem 0;
+            padding: var(--spacing-xs) 0;
         }
 
         .flashcard {
+            position: relative;
+            width: 100%;
+            max-width: 600px; /* Limit maximum width */
+            height: 100%;
+            max-height: 400px; /* Limit maximum height */
+            perspective: 1000px;
+            margin: 0 auto; /* Center the card */
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 100%;
-            height: auto;
-            min-height: min(70vh, 600px);
-            perspective: 1000px;
-            margin: auto;
         }
 
         .card {
             position: relative;
-            width: 100%;
-            height: 100%;
+            width: 90%; /* Add some space on the sides */
+            height: 90%; /* Add some space top/bottom */
             transform-style: preserve-3d;
-            transition: transform 0.6s, opacity 0.3s;
-        }
-
-        .card.flipped {
-            transform: rotateY(180deg);
+            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1), 
+                        opacity 0.3s ease;
         }
 
         .card-face {
             position: absolute;
-            width: 100%;
-            height: 100%;
-            backface-visibility: hidden;
+            inset: 0;
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: clamp(1rem, 3vw, 4rem);
-            border-radius: 12px;
+            padding: var(--spacing-lg);
+            border-radius: var(--card-border-radius);
+            backface-visibility: hidden;
             background: #1e1e1e;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-            overflow: auto;
         }
 
         .card-back {
@@ -88,68 +96,67 @@
             background: #2d2d2d;
         }
 
-        .card.shuffling {
-            opacity: 0;
-            transform: scale(0.95);
-        }
-
-        .card.shuffling.flipped {
-            transform: rotateY(180deg) scale(0.95);
+        .card.flipped {
+            transform: rotateY(180deg);
         }
 
         .term, .description {
+            width: 100%;
             max-width: 90%;
             text-align: center;
         }
 
         .term {
-            font-size: clamp(1.2rem, 4vw, 2.5rem);
+            font-size: clamp(1.2rem, 4vmin, 1.8rem);
             font-weight: 600;
             color: #fff;
         }
 
         .description {
-            font-size: clamp(1rem, 3vw, 1.6rem);
+            font-size: clamp(1rem, 3vmin, 1.3rem);
             line-height: 1.4;
             color: #e0e0e0;
         }
 
         .controls {
             display: flex;
-            justify-content: center;
-            gap: clamp(0.5rem, 2vw, 1rem);
+            flex-direction: column;
+            gap: var(--spacing-sm);
             width: 100%;
-            padding: 0 1rem;
-            flex-wrap: wrap;
+            max-width: 600px; /* Match flashcard max-width */
+            margin: 0 auto;
         }
 
         .primary-controls {
             display: flex;
-            gap: 0.5rem;
+            gap: var(--spacing-sm);
             width: 100%;
         }
 
         button {
-            padding: 0.75rem;
-            font-size: clamp(0.9rem, 2vw, 1.1rem);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: var(--spacing-xs);
+            padding: var(--spacing-sm);
+            font-size: clamp(0.875rem, 2vmin, 1rem);
             border: none;
             border-radius: 8px;
             background: #404040;
             color: #fff;
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: all 0.2s ease;
             flex: 1;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.5rem;
+            min-height: 44px; /* Minimum touch target size */
+        }
+
+        button:active {
+            transform: translateY(1px);
         }
 
         .shuffle-btn {
-            display: flex;
-            gap: clamp(0.5rem, 2vw, 1rem);
             background: #3d7a35;
-            width: clamp(120px, 25vw, 180px);
+            width: 100%;
         }
 
         .shuffle-btn svg {
@@ -164,78 +171,92 @@
 
         .progress {
             text-align: center;
-            font-size: 0.9rem;
+            font-size: clamp(0.75rem, 2vmin, 0.875rem);
             color: #888;
-            padding: 0.25rem 0;
         }
 
-        /* Desktop enhancements */
-        @media (min-width: 769px) {
+        /* Animation states */
+        .card.shuffling {
+            opacity: 0;
+            transform: scale(0.95);
+        }
+
+        .card.shuffling.flipped {
+            transform: rotateY(180deg) scale(0.95);
+        }
+
+        /* Desktop Enhancements */
+        @media (min-width: 768px) {
             .container {
-                gap: 1rem;
-                padding: 1rem;
+                padding: var(--spacing-xl);
+                gap: var(--spacing-md);
             }
 
             .controls {
                 flex-direction: row;
-                flex-wrap: wrap;
+                align-items: center;
             }
 
             .primary-controls {
                 width: auto;
+                flex: 1;
             }
 
             .shuffle-btn {
-                width: clamp(120px, 25vw, 180px);
-                margin-top: 0;
+                width: auto;
+                min-width: 140px;
             }
 
             button {
-                width: clamp(100px, 20vw, 150px);
-                padding: clamp(0.8rem, 2vw, 1.5rem);
+                padding: var(--spacing-md);
             }
         }
 
-        /* Prevent hover effects on touch devices */
-        @media (hover: hover) {
-            button:hover {
-                background: #505050;
-                transform: translateY(-2px);
+        /* Landscape Mode Optimization */
+        @media (max-height: 600px) and (orientation: landscape) {
+            .container {
+                grid-template-rows: auto 1fr auto;
+                gap: var(--spacing-xs);
+                padding: var(--spacing-md);
             }
 
-            button:active {
-                transform: translateY(0);
+            .flashcard {
+                max-height: 70vh;
+            }
+
+            h1 {
+                font-size: clamp(0.875rem, 3vmin, 1.25rem);
+            }
+
+            .term {
+                font-size: clamp(1rem, 3vmin, 1.5rem);
+            }
+
+            .description {
+                font-size: clamp(0.875rem, 2.5vmin, 1.25rem);
+            }
+
+            button {
+                padding: var(--spacing-xs) var(--spacing-sm);
+            }
+        }
+
+        /* Hover Effects for Non-Touch Devices */
+        @media (hover: hover) {
+            button:hover {
+                transform: translateY(-2px);
+                background: #505050;
             }
 
             .shuffle-btn:hover {
                 background: #367031;
             }
-
-            .card:hover {
-                transform: scale(1.02);
-            }
-
-            .card.flipped:hover {
-                transform: rotateY(180deg) scale(1.01);
-            }
         }
 
-        /* Extra small screens */
-        @media (max-height: 500px) {
-            h1 {
-                font-size: 1rem;
-            }
-
-            .term {
-                font-size: 1.1rem;
-            }
-
-            .description {
-                font-size: 0.9rem;
-            }
-
-            button {
-                padding: 0.5rem;
+        /* High DPI Screens */
+        @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+            .card-face {
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
             }
         }
     </style>
