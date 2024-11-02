@@ -1,182 +1,182 @@
 [
     {
         "term": "Object-Oriented Programming",
-        "description": "A programming paradigm that uses 'objects' to represent data and methods, promoting modularity, reusability, and abstraction."
+        "description": "A programming paradigm that uses 'objects' to represent data and methods, promoting modularity, reusability, and abstraction. For example, a car can be represented as an object with properties like color and methods like drive()."
     },
     {
         "term": "Class",
-        "description": "A blueprint for creating objects, defining properties and methods that the objects created from the class will have."
+        "description": "A blueprint for creating objects, defining properties and methods that the objects created from the class will have. For instance, a class called 'Dog' could have properties like breed and methods like bark()."
     },
     {
         "term": "Object",
-        "description": "An instance of a class that encapsulates data and behavior related to that data."
+        "description": "An instance of a class that encapsulates data and behavior related to that data. For example, 'myDog' could be an object of the 'Dog' class."
     },
     {
         "term": "Encapsulation",
-        "description": "The principle of bundling data and methods that operate on the data within one unit, restricting access to some components."
+        "description": "The principle of bundling data and methods that operate on the data within one unit, restricting access to some components. For example, a class may use private variables to hide sensitive information."
     },
     {
         "term": "Inheritance",
-        "description": "A mechanism that allows one class to inherit properties and methods from another class, promoting code reuse."
+        "description": "A mechanism that allows one class to inherit properties and methods from another class, promoting code reuse. For instance, a class 'Animal' can be a parent class for 'Dog' and 'Cat', inheriting common features."
     },
     {
         "term": "Composition",
-        "description": "A design principle where a class is composed of one or more objects of other classes, facilitating code reuse and flexibility."
+        "description": "A design principle where a class is composed of one or more objects of other classes, facilitating code reuse and flexibility. For example, a 'Car' class may have an 'Engine' object as a component."
     },
     {
         "term": "Polymorphism",
-        "description": "The ability for different classes to be treated as instances of the same class through a common interface, often via method overriding."
+        "description": "The ability for different classes to be treated as instances of the same class through a common interface, often via method overriding. For example, a 'draw()' method can behave differently for 'Circle' and 'Square' classes."
     },
     {
         "term": "Abstraction",
-        "description": "The concept of hiding complex reality while exposing only the necessary parts, often through abstract classes and interfaces."
+        "description": "The concept of hiding complex reality while exposing only the necessary parts, often through abstract classes and interfaces. For example, a 'Payment' interface might define a method 'processPayment()', but the implementation details are hidden."
     },
     {
         "term": "Method Overriding",
-        "description": "A feature that allows a subclass to provide a specific implementation of a method that is already defined in its superclass."
+        "description": "A feature that allows a subclass to provide a specific implementation of a method that is already defined in its superclass. For instance, a 'Bird' class might have a 'fly()' method that is overridden by a 'Penguin' subclass to do nothing."
     },
     {
         "term": "Method Overloading",
-        "description": "A feature that allows multiple methods in the same scope to have the same name with different parameters."
+        "description": "A feature that allows multiple methods in the same scope to have the same name with different parameters. For example, a 'calculateArea()' method could compute area for both rectangles and circles with different parameter lists."
     },
     {
         "term": "Interface",
-        "description": "A contract that defines a set of methods that implementing classes must provide, allowing for polymorphic behavior."
+        "description": "A contract that defines a set of methods that implementing classes must provide, allowing for polymorphic behavior. For instance, an 'IShape' interface could require 'draw()' and 'resize()' methods."
     },
     {
         "term": "Abstract Class",
-        "description": "A class that cannot be instantiated on its own and may contain abstract methods that must be implemented by derived classes."
+        "description": "A class that cannot be instantiated on its own and may contain abstract methods that must be implemented by derived classes. For example, an 'Animal' abstract class could have an abstract method 'makeSound()' that subclasses like 'Dog' must implement."
     },
     {
         "term": "Concrete Class",
-        "description": "A class that can be instantiated and contains complete implementations of all its methods."
+        "description": "A class that can be instantiated and contains complete implementations of all its methods. For example, a 'Car' class that includes all details and methods necessary for its operation."
     },
     {
         "term": "Single Responsibility Principle",
-        "description": "A design principle that states a class should have only one reason to change, promoting cleaner and more maintainable code."
+        "description": "A design principle that states a class should have only one reason to change, promoting cleaner and more maintainable code. For example, a 'User' class should handle user data, while a separate 'UserRepository' class handles data storage."
     },
     {
         "term": "Open/Closed Principle",
-        "description": "A principle stating that software entities should be open for extension but closed for modification, enhancing flexibility."
+        "description": "A principle stating that software entities should be open for extension but closed for modification, enhancing flexibility. For instance, a shape drawing program can add new shapes without altering existing code."
     },
     {
         "term": "Liskov Substitution Principle",
-        "description": "A principle that states objects of a superclass should be replaceable with objects of a subclass without affecting correctness."
+        "description": "A principle that states objects of a superclass should be replaceable with objects of a subclass without affecting correctness. For example, a 'Bird' class should be able to use 'Penguin' and still work as intended."
     },
     {
         "term": "Interface Segregation Principle",
-        "description": "A principle that advocates for clients to not be forced to depend on interfaces they do not use, promoting minimalism."
+        "description": "A principle that advocates for clients to not be forced to depend on interfaces they do not use, promoting minimalism. For example, a 'Printer' interface should not force implementing classes to handle faxing if they don’t need to."
     },
     {
         "term": "Dependency Inversion Principle",
-        "description": "A principle that suggests high-level modules should not depend on low-level modules but both should depend on abstractions."
+        "description": "A principle that suggests high-level modules should not depend on low-level modules but both should depend on abstractions. For example, a 'NotificationService' class could depend on an 'INotifier' interface rather than a specific 'EmailNotifier' class."
     },
     {
         "term": "Composition vs. Inheritance",
-        "description": "A design decision that emphasizes favoring composition over inheritance for greater flexibility and less coupling."
+        "description": "A design decision that emphasizes favoring composition over inheritance for greater flexibility and less coupling. For instance, using a 'Notification' class to send messages rather than extending a 'User' class."
     },
     {
         "term": "Encapsulation in Data Hiding",
-        "description": "The use of encapsulation to restrict direct access to some of an object's components, enhancing security and reducing complexity."
+        "description": "The use of encapsulation to restrict direct access to some of an object's components, enhancing security and reducing complexity. For example, a 'BankAccount' class might hide its balance from direct access, providing methods to deposit and withdraw."
     },
     {
         "term": "Message Passing",
-        "description": "A method of communication between objects that allows them to invoke each other's methods and exchange data."
+        "description": "A method of communication between objects that allows them to invoke each other's methods and exchange data. For example, a 'User' object can send a message to a 'Notification' object to send an alert."
     },
     {
         "term": "Static vs. Dynamic Binding",
-        "description": "Static binding occurs at compile-time while dynamic binding happens at runtime, often relating to method overriding."
+        "description": "Static binding occurs at compile-time while dynamic binding happens at runtime, often relating to method overriding. For example, static binding resolves method calls at compile time, while dynamic binding resolves them based on the object type at runtime."
     },
     {
         "term": "Mixin",
-        "description": "A class that provides methods to other classes but is not considered a base class itself, promoting code reuse."
+        "description": "A class that provides methods to other classes but is not considered a base class itself, promoting code reuse. For example, a 'Loggable' mixin could provide logging methods to various classes."
     },
     {
         "term": "Constructor",
-        "description": "A special method called when an object is instantiated, used to initialize the object's properties."
+        "description": "A special method called when an object is instantiated, used to initialize the object's properties. For example, a 'Car' constructor could set the initial color and model of the car."
     },
     {
         "term": "Destructor",
-        "description": "A method called when an object is destroyed, often used to free resources allocated to the object."
+        "description": "A method called when an object is destroyed, often used to free resources allocated to the object. For instance, a 'File' class destructor might close the file when the object is no longer needed."
     },
     {
         "term": "Access Modifiers",
-        "description": "Keywords used to set the accessibility of classes, methods, and other members, such as public, private, and protected."
+        "description": "Keywords used to set the accessibility of classes, methods, and other members, such as public, private, and protected. For example, a 'private' variable in a class can only be accessed within that class."
     },
     {
         "term": "Class Hierarchy",
-        "description": "The organization of classes in a tree-like structure that shows the relationship between classes and their inheritance."
+        "description": "The organization of classes in a tree-like structure that shows the relationship between classes and their inheritance. For example, a hierarchy where 'Vehicle' is a parent class to 'Car' and 'Truck'."
     },
     {
         "term": "Dynamic Dispatch",
-        "description": "A process by which a call to an overridden method is resolved at runtime, allowing for polymorphic behavior."
+        "description": "A process by which a call to an overridden method is resolved at runtime, allowing for polymorphic behavior. For example, when a method is called on a base class reference, the correct subclass method is executed at runtime."
     },
     {
         "term": "State Pattern",
-        "description": "A behavioral design pattern that allows an object to change its behavior when its internal state changes."
+        "description": "A behavioral design pattern that allows an object to change its behavior when its internal state changes. For example, a 'TrafficLight' object can switch between 'red', 'yellow', and 'green' states, changing its behavior accordingly."
     },
     {
         "term": "Strategy Pattern",
-        "description": "A behavioral design pattern that defines a family of algorithms, encapsulates each one, and makes them interchangeable."
+        "description": "A behavioral design pattern that defines a family of algorithms, encapsulates each one, and makes them interchangeable. For example, a 'SortingStrategy' interface could allow for different sorting algorithms to be used interchangeably."
     },
     {
         "term": "Decorator Pattern",
-        "description": "A structural design pattern that allows behavior to be added to individual objects, either statically or dynamically."
+        "description": "A structural design pattern that allows behavior to be added to individual objects, either statically or dynamically. For example, a 'Coffee' object can be decorated with milk or sugar dynamically."
     },
     {
         "term": "Observer Pattern",
-        "description": "A behavioral design pattern that allows a subject to notify observers about state changes, promoting a publish-subscribe model."
+        "description": "A behavioral design pattern that allows a subject to notify observers about state changes, promoting a publish-subscribe model. For example, a 'News Agency' notifies 'Subscribers' when new articles are published."
     },
     {
         "term": "Factory Method",
-        "description": "A creational design pattern that provides an interface for creating objects in a superclass but allows subclasses to alter the type of created objects."
+        "description": "A creational design pattern that provides an interface for creating objects in a superclass but allows subclasses to alter the type of created objects. For instance, a 'ShapeFactory' that creates 'Circle' or 'Square' objects based on input."
     },
     {
         "term": "Abstract Factory",
-        "description": "A creational design pattern that allows the creation of families of related or dependent objects without specifying their concrete classes."
+        "description": "A creational design pattern that allows the creation of families of related or dependent objects without specifying their concrete classes. For example, a 'GUIFactory' could produce buttons and text fields that match a specific theme."
     },
     {
         "term": "Singleton Pattern",
-        "description": "A creational design pattern that restricts a class to a single instance and provides a global point of access to it."
+        "description": "A creational design pattern that restricts a class to a single instance and provides a global point of access to it. For instance, a 'ConfigurationManager' class that ensures only one instance manages application settings."
     },
     {
         "term": "Adapter Pattern",
-        "description": "A structural design pattern that allows incompatible interfaces to work together, acting as a bridge between them."
+        "description": "A structural design pattern that allows incompatible interfaces to work together, acting as a bridge between them. For example, an 'AudioAdapter' could allow a 'MP3Player' to work with a 'MediaPlayer' interface."
     },
     {
         "term": "Facade Pattern",
-        "description": "A structural design pattern that provides a simplified interface to a complex subsystem, making it easier to use."
+        "description": "A structural design pattern that provides a simplified interface to a complex subsystem, making it easier to use. For example, a 'HomeTheaterFacade' could simplify interactions with a TV, DVD player, and sound system."
     },
     {
         "term": "Command Pattern",
-        "description": "A behavioral design pattern that encapsulates a request as an object, allowing for parameterization of clients with queues, requests, and operations."
+        "description": "A behavioral design pattern that encapsulates a request as an object, allowing for parameterization of clients with queues, requests, and operations. For example, a 'LightCommand' could encapsulate turning a light on or off."
     },
     {
         "term": "Chain of Responsibility",
-        "description": "A behavioral design pattern that allows a request to be sent through a chain of handlers, each of which can handle the request or pass it on."
+        "description": "A behavioral design pattern that allows a request to be sent through a chain of handlers, each of which can handle the request or pass it on. For example, a support ticket might be escalated through different levels of support."
     },
     {
         "term": "Visitor Pattern",
-        "description": "A behavioral design pattern that lets you separate algorithms from the objects on which they operate, promoting open/closed principle."
+        "description": "A behavioral design pattern that lets you separate algorithms from the objects on which they operate, promoting open/closed principle. For example, a 'Visitor' can implement different operations on a structure of 'Elements' without modifying their classes."
     },
     {
         "term": "Template Method",
-        "description": "A behavioral design pattern that defines the skeleton of an algorithm in a method, deferring some steps to subclasses."
+        "description": "A behavioral design pattern that defines the skeleton of an algorithm in a method, deferring some steps to subclasses. For example, a 'DataProcessor' class could outline a process for data cleaning, allowing subclasses to implement specific steps."
     },
     {
         "term": "Dependency Injection",
-        "description": "A design pattern used to implement IoC (Inversion of Control), allowing a class to receive its dependencies from an external source."
+        "description": "A design pattern used to implement IoC (Inversion of Control), allowing a class to receive its dependencies from an external source. For example, a 'Car' class can receive an 'Engine' object through its constructor rather than creating it internally."
     },
     {
         "term": "Data Transfer Object (DTO)",
-        "description": "An object that carries data between processes, typically used to encapsulate data and reduce the number of method calls."
+        "description": "An object that carries data between processes, typically used to encapsulate data and reduce the number of method calls. For example, a 'UserDTO' might carry user information like name and email between a server and client."
     },
     {
         "term": "Service Object",
-        "description": "A design pattern that encapsulates business logic in a separate class, making it easier to manage and test."
+        "description": "A design pattern that encapsulates business logic in a separate class, making it easier to manage and test. For example, a 'PaymentService' class could handle all payment-related operations."
     },
     {
         "term": "Prototype Pattern",
-        "description": "A creational design pattern that allows for cloning of objects without depending on their constructors."
+        "description": "A creational design pattern that allows for cloning of objects without depending on their constructors. For example, a 'Document' class could clone itself to create new documents based on an existing template."
     }
 ]
