@@ -55,16 +55,17 @@
         }
 
         .flashcard {
-            position: relative;
-            width: 100%;
-            max-width: 700px; /* Limit maximum width */
-            height: 100%;
-            max-height: min(400px, 50dvh);
-            perspective: 1000px;
-            margin: 0 auto; /* Center the card */
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        position: relative;
+        width: 100%;
+        max-width: 700px;
+        height: 100%;
+        /* Reduce max height for mobile */
+        max-height: min(300px, 40dvh);
+        perspective: 1000px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
         }
 
         .card {
@@ -182,6 +183,31 @@
         .card.shuffling.flipped {
             transform: rotateY(180deg) scale(0.95);
         }
+
+        @media screen and (max-width: 428px) { /* iPhone 13 Pro Max width */
+        .container {
+            height: 100vh;
+            padding: var(--spacing-xs);
+            gap: var(--spacing-xs);
+        }
+        
+        .flashcard {
+            max-height: min(250px, 35dvh);
+        }
+        
+        .controls {
+            padding: 0 var(--spacing-xs);
+        }
+        
+        button {
+            padding: var(--spacing-xs);
+            font-size: 0.875rem;
+        }
+
+        .shuffle-btn {
+            min-height: 36px;
+        }
+    }
 
         /* Desktop Enhancements */
         @media (min-width: 768px) {
