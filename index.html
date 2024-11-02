@@ -97,10 +97,8 @@
         }
 
         .term, .description {
-            max-width: 100%;
-            word-wrap: break-word;
+            max-width: 70%;
             text-align: center;
-            hyphens: auto;
         }
 
         .term {
@@ -375,6 +373,8 @@
                 setTimeout(() => {
                     this.cards = shuffle;
                     this.currentIndex = 0;
+                    // Reset flip state when shuffling
+                    this.isFlipped = false;
                     this.updateCard();
                     
                     // Reset animations
@@ -389,8 +389,12 @@
                 this.termElement.textContent = currentCard.term;
                 this.descriptionElement.textContent = currentCard.description;
                 this.currentCardElement.textContent = this.currentIndex + 1;
-                this.isFlipped = false;
-                this.cardElement.classList.remove('flipped');
+
+                if (this.isFlipped) {
+                    this.cardElement.classList.add('flipped');
+                } else {
+                    this.cardElement.classList.remove('flipped');
+                }
             }
 
             flipCard() {
