@@ -82,5 +82,73 @@
     {
         "term": "Error Handling",
         "description": "Mechanisms to respond to exceptions or errors that occur during program execution, often using try-catch blocks. \n Example: try { riskyOperation(); } catch (Exception e) { handleError(e); }"
+    },
+    {
+        "term": "Data Structures",
+        "description": "Organized formats for storing and managing data, such as arrays, linked lists, stacks, queues, and hash tables. \n Example: A stack uses LIFO (Last In First Out) order."
+    },
+    {
+        "term": "Algorithms",
+        "description": "Step-by-step procedures or formulas for solving problems, including sorting (like quicksort) and searching algorithms (like binary search). \n Example: QuickSort divides the array into sub-arrays."
+    },
+    {
+        "term": "Complexity Analysis",
+        "description": "A method to evaluate the efficiency of algorithms in terms of time and space. Commonly expressed in Big O notation. \n Example: O(n) indicates linear time complexity."
+    },
+    {
+        "term": "Recursion",
+        "description": "A technique where a function calls itself to solve smaller instances of a problem. \n Example: function factorial(n) { return n === 0 ? 1 : n * factorial(n - 1); }"
+    },
+    {
+        "term": "Concurrency",
+        "description": "The ability to run multiple processes simultaneously, often using threads or asynchronous programming. \n Example: using async/await in JavaScript."
+    },
+    {
+        "term": "Version Control",
+        "description": "A system that tracks changes to files and allows collaboration among multiple developers, commonly using tools like Git. \n Example: git commit -m 'Initial commit'."
+    },
+    {
+        "term": "API (Application Programming Interface)",
+        "description": "A set of rules and protocols for building and interacting with software applications. \n Example: RESTful APIs use HTTP requests to access resources."
+    },
+    {
+        "term": "Unit Testing",
+        "description": "A method of testing individual components of software to ensure they work correctly. \n Example: using frameworks like JUnit in Java."
+    },
+    {
+        "term": "Frameworks",
+        "description": "Pre-built collections of code that provide a structure for developing applications, such as React for frontend or Django for backend. \n Example: React allows for building user interfaces efficiently."
+    },
+    {
+        "term": "Database Management",
+        "description": "The practice of using a database to store, retrieve, and manipulate data, often using SQL for relational databases. \n Example: SELECT * FROM users WHERE age > 18;"
+    },
+    {
+        "term": "Security Practices",
+        "description": "Techniques and principles used to protect applications from vulnerabilities, including input validation and authentication. \n Example: hashing passwords with bcrypt."
+    },
+    {
+        "term": "Continuous Integration/Continuous Deployment (CI/CD)",
+        "description": "Practices that enable frequent integration of code changes and automated deployment to production environments. \n Example: using tools like Jenkins or GitHub Actions."
+    },
+    {
+        "term": "Software Development Life Cycle (SDLC)",
+        "description": "A framework defining the phases of software development from planning to maintenance, including stages like requirements, design, implementation, testing, and deployment."
+    },
+    {
+        "term": "Design Principles",
+        "description": "Guidelines for creating software that is easy to understand and maintain, such as SOLID principles, DRY (Don't Repeat Yourself), and KISS (Keep It Simple, Stupid)."
+    },
+    {
+        "term": "Cloud Computing",
+        "description": "Delivery of computing services over the internet, including storage, processing power, and networking. \n Example: AWS, Azure."
+    },
+    {
+        "term": "Networking Basics",
+        "description": "Fundamental concepts related to computer networks, including protocols (TCP/IP), the OSI model, and client-server architecture."
+    },
+    {
+        "term": "Security Basics",
+        "description": "Fundamental principles for securing software applications, including data encryption, authentication, and authorization."
     }
 ]
