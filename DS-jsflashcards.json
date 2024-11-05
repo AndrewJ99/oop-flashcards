@@ -1,0 +1,158 @@
+[
+    {
+        "term": "Array Create",
+        "description": "Creates a new empty array. \nExample: array = []"
+    },
+    {
+        "term": "Array.pop()",
+        "description": "Removes and returns the last element from an array. Returns undefined if array is empty. \nRuntime: O(1) \nExample: array.pop()"
+    },
+    {
+        "term": "Array.push()",
+        "description": "Adds one or more elements to the end of an array and returns the new length. \nRuntime: O(1) \nExample: array.push(10)"
+    },
+    {
+        "term": "Array.shift()",
+        "description": "Removes and returns the first element from an array (dequeue operation). Returns undefined if empty. \nRuntime: O(N) \nExample: array.shift()"
+    },
+    {
+        "term": "Array.unshift()",
+        "description": "Adds one or more elements to the beginning of an array (queue operation) and returns the new length. \nRuntime: O(N) \nExample: array.unshift(10)"
+    },
+    {
+        "term": "Array.find()",
+        "description": "Returns the first element in the array that satisfies the testing function. Returns undefined if no match. \nRuntime: O(N) \nExample: array.find(element => element > 5)"
+    },
+    {
+        "term": "Array.indexOf()",
+        "description": "Returns the first index at which a given element can be found. Returns -1 if not found. \nRuntime: O(N) \nExample: array.indexOf(element => element > 5)"
+    },
+    {
+        "term": "Array.filter()",
+        "description": "Creates a new array with all elements that pass the test function. Returns empty array if no match. \nRuntime: O(N) \nExample: array.filter(element => element > 5)"
+    },
+    {
+        "term": "Array Size",
+        "description": "Returns Number of elements. \nExample: array.length //let arr = [2, 3] //arr.length = 2"
+    },
+    {
+        "term": "Array.values() Iteration",
+        "description": "Iterates through array values using for...of loop. \nExample: \nfor (const val of array.values()) { \n  // Access each value directly \n}"
+    },
+    {
+        "term": "Array.entries() Iteration",
+        "description": "Iterates through array entries returning both index and value. \nExample: \nfor (const [index, val] of array.entries()) { \n  // Access both index and value \n}"
+    },
+    {
+        "term": "Array.forEach() - Simple",
+        "description": "Executes a provided function once for each array element. \nExample: \narray.forEach(val => val * 2) \n// Performs operation on each value"
+    },
+    {
+        "term": "Array.forEach() with Index",
+        "description": "Executes a function for each element with access to both value and index. Note: value comes first, then index. \nExample: \narray.forEach((val, index) => { \n  console.log(`${index}: ${val}`) \n})"
+    },
+    {
+        "term": "Map Creation",
+        "description": "Creates a new Map object. \nExample: map = new Map()"
+    },
+    {
+        "term": "Map.set()",
+        "description": "Adds or updates an element with a specified key and value to a Map object. Returns the Map object. \nRuntime: O(1) \nExample: map.set('key', 'val')"
+    },
+    {
+        "term": "Map.get()",
+        "description": "Returns the value associated with the specified key. Returns undefined if key not found. \nRuntime: O(1) \nExample: map.get('key')"
+    },
+    {
+        "term": "Map.has()",
+        "description": "Returns a boolean indicating whether a key exists in a Map object. \nRuntime: O(1) \nExample: map.has('key')"
+    },
+    {
+        "term": "Map.delete()",
+        "description": "Removes the specified element from a Map object. Returns true if removed, false if key did not exist. \nRuntime: O(1) \nExample: map.delete('key')"
+    },
+    {
+        "term": "Map.clear()",
+        "description": "Removes all elements from a Map object. Returns undefined. \nRuntime: O(N) \nExample: map.clear()"
+    },
+    {
+        "term": "Map Size",
+        "description": "returns the size of the map \n For Example: map.size"
+    },
+    {
+        "term": "Map.keys() Iteration",
+        "description": "Iterates through all keys in the Map. \nExample: \nfor (const key of map.keys()) { \n  // Access each key \n}"
+    },
+    {
+        "term": "Map.entries() Iteration",
+        "description": "Iterates through all entries in the Map, providing both key and value. \nExample: \nfor (const [key, value] of map.entries()) { \n  // Access both key and value \n}"
+    },
+    {
+        "term": "Set Creation",
+        "description": "Creates a new Set object. \nExample: set = new Set()"
+    },
+    {
+        "term": "Set.add()",
+        "description": "Adds a new element to a Set object. Returns the Set object. \nRuntime: O(1) \nExample: set.add(10)"
+    },
+    {
+        "term": "Set.has()",
+        "description": "Returns a boolean indicating whether an element exists in a Set object. \nRuntime: O(1) \nExample: set.has(10)"
+    },
+    {
+        "term": "Set.delete()",
+        "description": "Removes the specified element from a Set object. Returns true if removed, false otherwise. \nRuntime: O(1) \nExample: set.delete(10)"
+    },
+    {
+        "term": "Set.clear()",
+        "description": "Removes all elements from a Set object. Returns undefined. \nRuntime: O(N) \nExample: set.clear()"
+    },
+    {
+        "term": "Set.size",
+        "description": "returns the number of elements \n For Example: set.size"
+    },
+    {
+        "term": "Set.values() Iteration",
+        "description": "Iterates through all values in the Set. \nExample: \nfor (const value of set.values()) { \n  // Access each value \n}"
+    },
+    {
+        "term": "Set.entries() Iteration",
+        "description": "Iterates through all entries in the Set. Note that key and value are the same in a Set. \nExample: \nfor (const value of set.entries()) { \n  // Access each value \n}"
+    },
+    {
+        "term": "Set.forEach() Iteration",
+        "description": "Executes a function for each value in the Set. \nExample: \nset.forEach(val => console.log(val))"
+    },
+    {
+        "term": "Object Creation",
+        "description": "Creates a new empty JavaScript object. \nExample: \nobject = {}"
+    },
+    {
+        "term": "Object Add",
+        "description": "Two ways to add or update object properties. \nRuntime: O(1) \nExample: \nobject.key = 10 \n// or \nobject['key'] = 10"
+    },
+    {
+        "term": "Object Get",
+        "description": "Two ways to access object property values. Returns undefined if property doesn't exist. \nRuntime: O(1) \nExample: \nobject.key \n// or \nobject['key']"
+    },
+    {
+        "term": "Object Has",
+        "description": "Two ways to check if a property exists in an object. \nRuntime: O(1) \nExample: \nobject.key !== undefined \n// or \n'key' in object"
+    },
+    {
+        "term": "Object Delete",
+        "description": "Removes a property from an object. Returns true if deletion succeeded. Returns false or throws error for non-configurable properties. \nRuntime: O(1) \nExample: \ndelete object.key"
+    },
+    {
+        "term": "Object Size",
+        "description": "Gets the number of enumerable properties in an object. \nRuntime: O(N) \nExample: \nObject.keys(object).length"
+    },
+    {
+        "term": "Object for...in Iteration",
+        "description": "Iterates over all enumerable string properties of an object. \nExample: \nfor (const key in object) { \n  const value = object[key] \n}"
+    },
+    {
+        "term": "Object.keys() Iteration",
+        "description": "Iterates over object's enumerable properties using Object.keys() and forEach. \nExample: \nObject.keys(object).forEach(key => { \n  const value = object[key] \n})"
+    }
+]

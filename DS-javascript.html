@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DS Javascript</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --spacing-xs: 0.25rem;
+            --spacing-sm: 0.5rem;
+            --spacing-md: 1rem;
+            --spacing-lg: 1.5rem;
+            --spacing-xl: 2rem;
+            --card-border-radius: 12px;
+            --container-padding: max(1rem, 2vw);
+        }
+
+        html, body {
+            height: 100%;
+            overflow: hidden;
+            position: fixed;
+            width: 100%;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+            background-color: #121212;
+            color: #e0e0e0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            touch-action: none;
+        }
+
+        .container {
+            height: 100dvh; /* Use dynamic viewport height */
+            width: 100%;
+            max-width: 1200px;
+            padding: var(--container-padding);
+            display: grid;
+            grid-template-rows: auto minmax(0, 1fr) auto auto;
+            gap: var(--spacing-sm);
+            overflow: hidden;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: clamp(1.2rem, 4vmin, 1.8rem);
+            color: #fff;
+            padding: var(--spacing-xs) 0;
+        }
+
+        .flashcard {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            perspective: 1000px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .card {
+            position: relative;
+            width: 90%;
+            height: 90%;
+            transform-style: preserve-3d;
+            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1), 
+                        opacity 0.3s ease;
+        }
+
+        .card-face {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: var(--spacing-md);
+            border-radius: var(--card-border-radius);
+            backface-visibility: hidden;
+            background: #1e1e1e;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        }
+
+        .card-back {
+            transform: rotateY(180deg);
+            background: #2d2d2d;
+        }
+
+        .card.flipped {
+            transform: rotateY(180deg);
+        }
+
+        .term, .description {
+            width: 100%;
+            max-width: 90%;
+            text-align: center;
+            overflow-y: auto;
+            max-height: 100%;
+            padding: var(--spacing-xs);
+        }
+
+        .term {
+            font-size: clamp(1rem, 3.5vmin, 1.6rem);
+            font-weight: 600;
+            color: #fff;
+        }
+
+        .description {
+            font-size: clamp(0.9rem, 3vmin, 1.2rem);
+            line-height: 1.4;
+            color: #e0e0e0;
+        }
+
+        .controls {
+            display: grid;
+            gap: var(--spacing-sm);
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-sm);
+        }
+
+        .primary-controls {
+            display: flex;
+            gap: var(--spacing-sm);
+            width: 100%;
+        }
+
+        button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: var(--spacing-xs);
+            padding: var(--spacing-sm);
+            font-size: clamp(0.875rem, 2vmin, 1rem);
+            border: none;
+            border-radius: 8px;
+            background: #404040;
+            color: #fff;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            flex: 1;
+            min-height: 44px;
+        }
+
+        .shuffle-btn {
+            background: #3d7a35;
+            /* Added max-width to prevent the button from being too wide */
+            max-width: 100%;
+            width: auto;
+            /* Make it take up less space horizontally */
+            padding-left: var(--spacing-lg);
+            padding-right: var(--spacing-lg);
+        }
+
+        .shuffle-btn svg {
+            width: 1.2em;
+            height: 1.2em;
+        }
+
+        .progress {
+            text-align: center;
+            font-size: clamp(0.75rem, 2vmin, 0.875rem);
+            color: #888;
+            padding-bottom: env(safe-area-inset-bottom);
+        }
+
+        /* Media query for larger screens */
+        @media (min-width: 768px) {
+            .container {
+                padding: var(--spacing-xl);
+                gap: var(--spacing-md);
+            }
+
+            .controls {
+                display: flex;
+                align-items: center;
+            }
+
+            .primary-controls {
+                flex: 1;
+            }
+
+            .shuffle-btn {
+                min-width: 140px;
+            }
+        }
+
+        /* Landscape mode adjustments */
+        @media (orientation: landscape) and (max-height: 600px) {
+            .container {
+                grid-template-rows: auto 1fr auto;
+                gap: var(--spacing-xs);
+                padding: var(--spacing-sm);
+            }
+
+            h1 {
+                font-size: clamp(1rem, 3vmin, 1.4rem);
+            }
+
+            .controls {
+                flex-direction: row;
+                padding: 0;
+            }
+
+            button {
+                padding: var(--spacing-xs) var(--spacing-sm);
+                min-height: 36px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Data Structures in Javascript Cheat Sheet</h1>
+        <div class="flashcard">
+            <div class="card">
+                <div class="card-face">
+                    <p class="term"></p>
+                </div>
+                <div class="card-face card-back">
+                    <p class="description"></p>
+                </div>
+            </div>
+        </div>
+        <div class="controls">
+            <div class="primary-controls">
+                <button id="prevBtn">Previous</button>
+                <button id="nextBtn">Next</button>
+            </div>
+            <button id="shuffleBtn" class="shuffle-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M2 18h1.4c1.3 0 2.5-.6 3.3-1.7l6.1-8.6c.7-1.1 2-1.7 3.3-1.7H22"/>
+                    <path d="m18 2 4 4-4 4"/>
+                    <path d="M2 6h1.9c1.5 0 2.9.8 3.7 2"/>
+                    <path d="M22 18h-5.9c-1.3 0-2.5-.6-3.3-1.7l-6.1-8.6C6 6.6 4.7 6 3.4 6H2"/>
+                    <path d="m18 14 4 4-4 4"/>
+                </svg>
+                Shuffle
+            </button>
+        </div>
+        <div class="progress">
+            Card <span id="currentCard">1</span> of <span id="totalCards">0</span>
+        </div>
+    </div>
+
+    <script>
+        class FlashcardApp {
+            constructor() {
+                this.cards = [];
+                this.currentIndex = 0;
+                this.isFlipped = false;
+                this.isShuffling = false;
+
+                // DOM elements
+                this.cardElement = document.querySelector('.card');
+                this.termElement = document.querySelector('.term');
+                this.descriptionElement = document.querySelector('.description');
+                this.currentCardElement = document.getElementById('currentCard');
+                this.totalCardsElement = document.getElementById('totalCards');
+                this.prevBtn = document.getElementById('prevBtn');
+                this.nextBtn = document.getElementById('nextBtn');
+                this.shuffleBtn = document.getElementById('shuffleBtn');
+
+                // Event listeners
+                this.cardElement.addEventListener('click', () => this.flipCard());
+                this.prevBtn.addEventListener('click', () => this.previousCard());
+                this.nextBtn.addEventListener('click', () => this.nextCard());
+                this.shuffleBtn.addEventListener('click', () => this.shuffleCards());
+                
+                // Keyboard navigation
+                document.addEventListener('keydown', (e) => {
+                    if (e.key === 'ArrowLeft') this.previousCard();
+                    if (e.key === 'ArrowRight') this.nextCard();
+                    if (e.key === ' ' || e.key === 'Enter') this.flipCard();
+                    if (e.key === 's') this.shuffleCards();
+                });
+
+                // Initialize
+                this.loadCards();
+            }
+
+            async loadCards() {
+                try {
+                    const response = await fetch('DS-jsflashcards.json');
+                    this.cards = await response.json();
+                    this.totalCardsElement.textContent = this.cards.length;
+                    this.updateCard();
+                } catch (error) {
+                    console.error('Error loading flashcards:', error);
+                    this.termElement.textContent = 'Error loading flashcards';
+                    this.descriptionElement.textContent = 'Please check if flashcards.json exists and is properly formatted';
+                }
+            }
+
+            shuffleCards() {
+                if (this.isShuffling) return;
+                this.isShuffling = true;
+
+                // Visual feedback
+                this.shuffleBtn.classList.add('shuffling');
+                this.cardElement.classList.add('shuffling');
+
+                // Fisher-Yates shuffle algorithm
+                const shuffle = [...this.cards];
+                for (let i = shuffle.length - 1; i > 0; i--) {
+                    const j = Math.floor(Math.random() * (i + 1));
+                    [shuffle[i], shuffle[j]] = [shuffle[j], shuffle[i]];
+                }
+
+                // Delay the update for animation
+                setTimeout(() => {
+                    this.cards = shuffle;
+                    this.currentIndex = 0;
+                    // Reset flip state when shuffling
+                    this.isFlipped = false;
+                    this.updateCard();
+                    
+                    // Reset animations
+                    this.cardElement.classList.remove('shuffling');
+                    this.shuffleBtn.classList.remove('shuffling');
+                    this.isShuffling = false;
+                }, 300);
+            }
+
+            updateCard() {
+                const currentCard = this.cards[this.currentIndex];
+                this.termElement.textContent = currentCard.term;
+                this.descriptionElement.textContent = currentCard.description;
+                this.currentCardElement.textContent = this.currentIndex + 1;
+
+                if (this.isFlipped) {
+                    this.cardElement.classList.add('flipped');
+                } else {
+                    this.cardElement.classList.remove('flipped');
+                }
+            }
+
+            flipCard() {
+                if (this.isShuffling) return;
+                this.isFlipped = !this.isFlipped;
+                this.cardElement.classList.toggle('flipped');
+            }
+
+            previousCard() {
+                if (this.isShuffling) return;
+                if (this.currentIndex > 0) {
+                    this.currentIndex--;
+                    this.updateCard();
+                }
+            }
+
+            nextCard() {
+                if (this.isShuffling) return;
+                if (this.currentIndex < this.cards.length - 1) {
+                    this.currentIndex++;
+                    this.updateCard();
+                }
+            }
+        }
+
+        // Initialize the app
+        document.addEventListener('DOMContentLoaded', () => {
+            new FlashcardApp();
+        });
+    </script>
+    </body>
+</html>
